@@ -41,12 +41,14 @@ namespace NetSynClip
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dragControl1 = new 궁서_급식.DragControl();
             this.dragControl2 = new 궁서_급식.DragControl();
             this.elipseControl1 = new 궁서_급식.ElipseControl();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // radioButton1
@@ -172,6 +174,15 @@ namespace NetSynClip
             this.listBox1.Size = new System.Drawing.Size(450, 180);
             this.listBox1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(484, 63);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(415, 351);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // dragControl1
             // 
             this.dragControl1.SelectControl = this;
@@ -190,7 +201,8 @@ namespace NetSynClip
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(489, 426);
+            this.ClientSize = new System.Drawing.Size(911, 426);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
@@ -205,6 +217,7 @@ namespace NetSynClip
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,5 +240,6 @@ namespace NetSynClip
         private 궁서_급식.DragControl dragControl2;
         private System.Windows.Forms.ListBox listBox1;
         private 궁서_급식.ElipseControl elipseControl1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

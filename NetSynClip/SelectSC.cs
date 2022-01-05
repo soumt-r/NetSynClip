@@ -1,14 +1,8 @@
 ﻿using ClipboardHelper;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Collections.Specialized;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 
@@ -55,33 +49,56 @@ namespace NetSynClip
             if (!is_synced_change)
             {
                 if (Clipboard.ContainsText())
-             
+
                 {
                     string ClipTMP = Clipboard.GetText();
-                    listBox1.Invoke((MethodInvoker)delegate
-                    {
-                        listBox1.Items.Add("Text : " + ClipTMP);
-                    });
-                    
-                    TextTemp = ClipTMP;
-                    TypeTemp = 1;
 
+                    if (TextTemp != ClipTMP)
+                    {
+                        listBox1.Invoke((MethodInvoker)delegate
+                        {
+                            listBox1.Items.Add("Text : " + ClipTMP);
+                        });
+
+                        TextTemp = ClipTMP;
+                        TypeTemp = 1;
+                    }
                 }
                 else if (Clipboard.ContainsImage())
                 {
                     Image ClipTMP = Clipboard.GetImage();
-                    listBox1.Invoke((MethodInvoker)delegate
+
+                    /*listBox1.Invoke((MethodInvoker)delegate
                     {
                         listBox1.Items.Add("Image");
+                    });*/
+                    ImgTemp = ClipTMP;
+                    pictureBox1.Invoke((MethodInvoker)delegate
+                    {
+                        pictureBox1.BackgroundImage = ClipTMP;
                     });
-                    ImgTemp = (Image)ClipTMP;
                     TypeTemp = 2;
+                    
+                }
+                else if (Clipboard.ContainsFileDropList())
+                {
+                    StringCollection FileTMP = Clipboard.GetFileDropList();
+                    foreach (String i in FileTMP)
+                    {
+                        if (File.Exists(i))
+                        {
+                            listBox1.Invoke((MethodInvoker)delegate
+                            {
+                                listBox1.Items.Add("File : " + i);
+                            });
+                        }
+                    }
                 }
             }
         }
 
         
-
+        
 
         private void SelectSC_Load(object sender, EventArgs e)
         {
